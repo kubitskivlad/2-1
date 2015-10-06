@@ -11,14 +11,7 @@
 #include <cstdlib>
 using namespace std;
 int addition(char* line);
-int main()
-{
-    char* line1 = new char [30];
-    cout<<"vvedite stroky "<< endl;
-    cin>> line1;
-    int a = addition (line1);
-    cout << "sum= "<<a;
-}
+
 int addition(char* line)
 {
     char* ch = new char [30];
@@ -56,4 +49,24 @@ int addition(char* line)
     }
 
     return summ;
+}
+void assert(char* line, int right)
+{
+	int ans=addition(line);
+	if (ans==right)
+		cout << "OK" << endl;
+	else
+		cout << "FAIL" << endl;
+}
+int main() {
+	char line1[] = "-2+1-3+4";
+	assert(line1, 0);
+	char line2[] = "216-733+1048-982";
+	assert(line2, -451);
+	char line3[] = "-1217+2048+577+382-2004";
+	assert(line3, -214);
+	char line4[] = "124+1248-15";
+	assert(line4, 1357);
+	system("pause");
+	return 0;
 }
